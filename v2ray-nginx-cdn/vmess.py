@@ -32,6 +32,7 @@ isUsingCloudFlareCDNProxy = input("Are you using CloudFlare CDN Proxy? type 'yes
 if isUsingCloudFlareCDNProxy == 'yes':
     enhancedIPList = []
     for line in open(str(path.joinpath('cloudflare_ip_list.txt')), 'r'):
-        print(config_generator(domain, uuid, line + "\n"))
+        line = line.replace("\n", "")
+        print(config_generator(domain, uuid, line))
 else:
     print(config_generator(domain, uuid))
